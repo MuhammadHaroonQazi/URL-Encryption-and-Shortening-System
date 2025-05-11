@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Decrypt URL</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>🔓 Decrypt Short URL</h1>
+    <form method="POST">
+        <select name="algorithm" id="algorithm" onchange="toggleKeyField()">
+                <option value="aes">AES</option>
+                <option value="xor">XOR</option>
+                <option value="des">DES</option>
+                <option value="blowfish">Blowfish</option>
+            </select><br>
+        <input type="text" name="key" placeholder="Enter decryption key" required><br>
+        <input type="submit" value="Decrypt & Go">
+    </form>
+    {% if error %}
+    <p class="error">{{ error }}</p>
+    {% endif %}
+</div>
+</body>
+</html>
